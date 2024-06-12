@@ -20,7 +20,7 @@ body {
 
 .qr-code-generator {
   width: 100%;
-  height: 400px;
+  height: calc(100% -262px);
   background-color: #f0f8ff;
   box-shadow: 1px 1px 12px black;
   border: 1px solid black;
@@ -115,11 +115,6 @@ body {
   width: calc(100% / 2 - 10px);
 }
 
-.goto-scanner {
-  width: 416px;
-  height: 55px;
-}
-
 .generator-input-buttons button {
   background-color: #29ab87;
   border: 1px solid gray;
@@ -135,12 +130,58 @@ body {
   background-color: #249c7a;
 }
 
+.goto-scanner {
+  width: 416px;
+  height: 55px;
+}
+
 .qr-code-scanner {
   width: 100%;
   height: 100%;
   background-color: blanchedalmond;
   position: absolute;
   display: none;
+}
+@media screen and (max-width: 500px) {
+  .container {
+    width: 90vw;
+    margin-top: 20px;
+  }
+
+  .qr-code-generator {
+    width: 90vw;
+  }
+
+  .qr-code-generator.active {
+    height: 660px;
+  }
+  .generator-input-buttons input {
+    width: 70vw;
+  }
+
+  .generator-input-buttons button {
+    font-size: 18px;
+  }
+
+  .generator-buttons {
+    width: 70vw;
+  }
+
+  .generator-buttons button {
+    width: calc(70vw / 2 - 10px);
+  }
+
+  .goto-scanner {
+    width: 70vw;
+  }
+  .generator-img img {
+    width: 170px;
+  }
+
+  .qr-code-generator.active .generator-title-img .generator-img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* .Generator {
