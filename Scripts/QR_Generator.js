@@ -1,8 +1,8 @@
-const qr_code_generator = document.querySelector(".qr-code-generator");
-const get_data = document.querySelector(".generator-input-buttons input");
-const image_data = document.querySelector(".generator-img img");
-const generate = document.querySelector("#generate");
-let count = false;
+get_data.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    generate.click();
+  }
+});
 
 generate.addEventListener("click", () => {
   if (generate.innerHTML == "Generate") {
@@ -28,7 +28,9 @@ function generate_qr_code() {
   });
 
   count = true;
-  get_data.addEventListener("keyup", () => {
+  get_data.addEventListener("keyup", (e) => {
+    console.log(e.key);
+
     if ((get_data.value == "" || get_data.value == the_input_value) && count) {
       generate.innerHTML = "Close";
     } else if (get_data.value != the_input_value) {

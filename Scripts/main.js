@@ -1,43 +1,28 @@
-const generator = document.querySelector(".qr-generator-btn"),
-  scanner = document.querySelector(".qr-scanner-btn"),
-  generatorSrc = "Scripts/QR_Generator.js",
-  generatorId = "qr-generator",
-  scannerSrc = "Scripts/QR_Scanner.js",
-  scannerId = "qr-scanner";
+const goto_generator_button = document.querySelector(".goto-generator"),
+  goto_scanner_button = document.querySelector(".goto-scanner");
 
-generator.addEventListener("click", () => {
-  removeElement();
-  document.body.classList.add("Generator");
-  const elementObj = createElements(generatorSrc, generatorId);
-  document.head.appendChild(elementObj);
+const qr_code_generator = document.querySelector(".qr-code-generator");
+const get_data = document.querySelector(".generator-input-buttons input");
+const image_data = document.querySelector(".generator-img img");
+const generate = document.querySelector("#generate");
+let count = false;
+
+const input_area = document.querySelector(".inputs"),
+  input_file = document.querySelector(".inputs input"),
+  processing_text = document.querySelector(".inputs p"),
+  qr_code_scanner = document.querySelector(".qr-code-scanner"),
+  output_area = document.querySelector(".scanner-output-button"),
+  close_button = document.querySelector("#close"),
+  copy_button = document.querySelector("#copy"),
+  text_area = document.querySelector(".output textarea"),
+  imageSRC = document.querySelector(".inputs img");
+
+goto_scanner_button.addEventListener("click", () => {
+  qr_code_generator.classList.add("disabled");
+  qr_code_scanner.classList.remove("disabled");
 });
 
-scanner.addEventListener("click", () => {
-  removeElement();
-  document.body.classList.add("Scanner");
-  const elementObj = createElements(scannerSrc, scannerId);
-  document.head.appendChild(elementObj);
+goto_generator_button.addEventListener("click", () => {
+  qr_code_generator.classList.remove("disabled");
+  qr_code_scanner.classList.add("disabled");
 });
-
-function createElements(src, id) {
-  const newScr = document.createElement("script");
-  newScr.src = src;
-  newScr.id = id;
-  newScr.setAttribute("defer", "");
-  return newScr;
-}
-
-function removeElement() {
-  const generator = document.getElementById(generatorId),
-    scanner = document.getElementById(scannerId);
-  if (generator == null && scanner == null) {
-    return;
-  } else if (generator == null) {
-    document.head.removeChild(scanner);
-    document.body.classList.remove("Scanner");
-    return;
-  }
-  document.head.removeChild(generator);
-  document.body.classList.remove("Generator");
-  return;
-}

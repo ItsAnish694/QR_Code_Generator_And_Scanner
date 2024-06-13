@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Generator</title>
     <link rel="stylesheet" href="CSS/style.css" />
+    <script src="Scripts/main.js" defer></script>
+    <script src="Scripts/QR_Scanner.js" defer></script>
     <script src="Scripts/QR_Generator.js" defer></script>
   </head>
   <body>
@@ -30,23 +32,27 @@
           <button class="goto-scanner">QR Code Scanner</button>
         </div>
       </div>
-      <div class="qr-code-scanner"></div>
+      <div class="qr-code-scanner disabled">
+        <div class="scanner-input">
+          <form action="#">
+            <div class="inputs">
+              <p>Click Here To Upload</p>
+              <img alt="qr-code" />
+              <input type="file" name="file" />
+            </div>
+          </form>
+        </div>
+        <div class="scanner-output-button">
+          <div class="output">
+            <textarea disabled></textarea>
+          </div>
+          <div class="buttons">
+            <button id="close">Close</button>
+            <button id="copy">Copy</button>
+          </div>
+        </div>
+        <button class="goto-generator">QR Code Generator</button>
+      </div>
     </div>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="CSS/style.css" />
-    <script src="Scripts/main.js" defer></script>
-  </head>
-  <body>
-    <h1></h1>
-    <button class="qr-generator-btn">Generator</button>
-    <button class="qr-scanner-btn">Scanner</button>
-  </body>
-</html> -->
