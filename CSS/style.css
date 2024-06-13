@@ -136,6 +136,7 @@ button {
   font-size: 24px;
   font-weight: bold;
   height: 55px;
+  cursor: pointer;
   color: #ffffff;
 }
 
@@ -201,7 +202,6 @@ button:hover {
 }
 
 .qr-code-generator.active .generator-title-img .generator-img {
-  pointer-events: auto;
   height: 260px;
   opacity: 1;
 }
@@ -222,11 +222,22 @@ button:hover {
   width: 416px;
   height: 55px;
   padding: 0px 15px;
-  box-sizing: border-box;
   border: 1px solid #808080;
   text-align: center;
   border-radius: 5px;
   font-size: 18px;
+}
+
+.download {
+  opacity: 0.9;
+  background-color: gray;
+  pointer-events: none;
+}
+
+.download.active {
+  opacity: 1;
+  background-color: #29ab87;
+  pointer-events: auto;
 }
 
 .generator-input-buttons input:focus {

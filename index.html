@@ -11,27 +11,6 @@
   </head>
   <body>
     <div class="container">
-      <div class="qr-code-generator">
-        <div class="generator-title-img">
-          <div class="generator-title">
-            <h1>QR Code Generator</h1>
-          </div>
-          <div class="generator-img">
-            <img alt="qr-code" />
-          </div>
-        </div>
-        <div class="generator-input-buttons">
-          <input
-            type="text"
-            placeholder="Enter Your Text Here To Generate QR Code"
-          />
-          <div class="generator-buttons">
-            <button id="generate">Generate</button>
-            <button id="download">Download</button>
-          </div>
-          <button class="goto-scanner">QR Code Scanner</button>
-        </div>
-      </div>
       <div class="qr-code-scanner disabled">
         <div class="scanner-input">
           <form action="#">
@@ -52,6 +31,28 @@
           </div>
         </div>
         <button class="goto-generator">QR Code Generator</button>
+      </div>
+
+      <div class="qr-code-generator">
+        <div class="generator-title-img">
+          <div class="generator-title">
+            <h1>QR Code Generator</h1>
+          </div>
+          <div class="generator-img">
+            <img alt="qr-code" />
+          </div>
+        </div>
+        <div class="generator-input-buttons">
+          <input
+            type="text"
+            placeholder="Enter Your Text Here To Generate QR Code"
+          />
+          <div class="generator-buttons">
+            <button id="generate">Generate</button>
+            <button class="download">Download</button>
+          </div>
+          <button class="goto-scanner">QR Code Scanner</button>
+        </div>
       </div>
     </div>
   </body>

@@ -1,40 +1,91 @@
-get_data.addEventListener("keydown", (e) => {
+generate.addEventListener("click", () => {
+  if (generate.innerHTML == "Generate") {
+    generate_qr_code();
+  } else if (generate.innerHTML == "Generating...") {
+    return;
+  } else {
+    closeGenerator();
+  }
+});
+
+function closeGenerator() {
+  count = false;
+  qr_code_generator.classList.remove("active");
+  get_data.value = "";
+  generate.innerHTML = "Generate";
+  download.classList.remove("active");
+}
+
+get_data.addEventListener("keyup", (e) => {
   if (e.key == "Enter") {
     generate.click();
   }
 });
 
-generate.addEventListener("click", () => {
-  if (generate.innerHTML == "Generate") {
-    generate_qr_code();
-  } else {
-    count = false;
-    qr_code_generator.classList.remove("active");
-    get_data.value = "";
-    generate.innerHTML = "Generate";
-  }
-});
-
 function generate_qr_code() {
-  const the_input_value = get_data.value;
-  if (!the_input_value) {
+  let the_input_value = get_data.value;
+  the_input_value = the_input_value.trim();
+  if (!the_input_value || the_input_value == "") {
     return;
   }
-  image_data.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${the_input_value}`;
+
   generate.innerHTML = "Generating...";
-  image_data.addEventListener("load", () => {
+
+  fetch(
+    `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${the_input_value}`
+  )
+    .then((res) => res.blob())
+    .then((url) => {
+      url = URL.createObjectURL(url);
+      image_data.src = url;
+      download.classList.add("active");
+
+      if (updateDownload) {
+        download.removeEventListener("click", updateDownload);
+      }
+
+      updateDownload = () => {
+        let aTag = document.createElement("a");
+        aTag.href = url;
+        aTag.download = "QR Code";
+        qr_code_generator.append(aTag);
+        aTag.click();
+        aTag.remove();
+      };
+      download.addEventListener("click", updateDownload);
+    })
+    .catch(() => {
+      generate.innerHTML = "Network Error";
+      get_data.value = "";
+    });
+
+  if (imageLoad) {
+    image_data.removeEventListener("load", imageLoad);
+  }
+
+  imageLoad = () => {
     generate.innerHTML = "Close";
     qr_code_generator.classList.add("active");
-  });
+  };
+  image_data.addEventListener("load", imageLoad);
 
   count = true;
-  get_data.addEventListener("keyup", (e) => {
-    console.log(e.key);
 
-    if ((get_data.value == "" || get_data.value == the_input_value) && count) {
+  if (changeGenerate) {
+    get_data.removeEventListener("keyup", changeGenerate);
+  }
+
+  changeGenerate = () => {
+    let curr_input_value = get_data.value;
+    curr_input_value = curr_input_value.trim();
+    if (
+      (curr_input_value == "" || curr_input_value == the_input_value) &&
+      count
+    ) {
       generate.innerHTML = "Close";
-    } else if (get_data.value != the_input_value) {
+    } else {
       generate.innerHTML = "Generate";
     }
-  });
+  };
+  get_data.addEventListener("keyup", changeGenerate);
 }
