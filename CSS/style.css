@@ -6,11 +6,9 @@
 
 body {
   height: 100dvh;
-  width: 100dvw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
 }
 
 p {
@@ -21,14 +19,12 @@ p {
   width: 480px;
   height: 660px;
   display: flex;
-  justify-content: center;
   align-items: center;
   position: relative;
 }
 
 .qr-code-scanner {
   width: 100%;
-  height: calc(100% -262px);
   padding: 30px;
   background-color: aliceblue;
   position: absolute;
@@ -40,10 +36,6 @@ p {
 .qr-code-scanner.disabled {
   display: none;
   pointer-events: none;
-}
-
-.qr-code-scanner.active {
-  height: 100%;
 }
 
 .scanner-input-output {
@@ -102,10 +94,8 @@ p {
 }
 
 .qr-code-scanner .scanner-output-button .output {
-  width: 100%;
   margin: 10px 0px;
   height: 120px;
-  border-radius: 9px;
 }
 
 .qr-code-scanner .scanner-output-button .output textarea {
@@ -121,7 +111,6 @@ p {
 }
 
 .buttons {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 30px 0px 0px;
@@ -153,8 +142,7 @@ button:hover {
 }
 
 .qr-code-generator {
-  width: 100%;
-  height: calc(100% -262px);
+  padding: 30px;
   background-color: #f0f8ff;
   box-shadow: 1px 1px 12px black;
   border: 1px solid black;
@@ -168,12 +156,7 @@ button:hover {
   pointer-events: none;
 }
 
-.qr-code-generator.active {
-  height: 100%;
-}
-
 .generator-title-img {
-  width: 100%;
   padding: 30px 0px 0px 0px;
   display: flex;
   flex-direction: column;
@@ -214,7 +197,6 @@ button:hover {
 }
 
 .generator-input-buttons {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,7 +242,6 @@ button:hover {
 }
 
 .generator-buttons button {
-  height: 55px;
   width: calc(100% / 2 - 10px);
 }
 
@@ -270,7 +251,6 @@ button:hover {
 
 .goto-scanner {
   width: 416px;
-  height: 55px;
 }
 
 @media screen and (orientation: portrait) {
@@ -347,8 +327,8 @@ button:hover {
   }
 
   .qr-code-generator.active .generator-title-img .generator-img {
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
   }
 
   .generator-title h1 {
