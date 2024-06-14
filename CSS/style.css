@@ -20,6 +20,9 @@ p {
 .container {
   width: 480px;
   height: 660px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -215,7 +218,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 35px 0px;
+  padding: 35px 0px;
 }
 
 .generator-input-buttons input {
@@ -270,19 +273,56 @@ button:hover {
   height: 55px;
 }
 
+@media screen and (orientation: portrait) {
+  .qr-code-generator {
+    border: none;
+    box-shadow: none;
+  }
+
+  .qr-code-scanner {
+    border: none;
+    box-shadow: none;
+  }
+
+  body {
+    background-color: aliceblue;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .container {
+    height: 90vh;
+  }
+
+  .qr-code-scanner {
+    height: 90vh;
+  }
+
+  .qr-code-generator {
+    height: 90vh;
+    border: none;
+    box-shadow: none;
+  }
+
+  .qr-code-scanner {
+    border: none;
+    box-shadow: none;
+  }
+
+  body {
+    background-color: aliceblue;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .container {
     width: 90vw;
-    margin-top: 20px;
   }
 
   .qr-code-generator {
     width: 90vw;
   }
 
-  .qr-code-generator.active {
-    height: 660px;
-  }
   .generator-input-buttons input {
     width: 70vw;
   }
@@ -303,11 +343,19 @@ button:hover {
     width: 70vw;
   }
   .generator-img img {
-    width: 170px;
+    width: 180px;
   }
 
   .qr-code-generator.active .generator-title-img .generator-img {
     width: 180px;
     height: 180px;
+  }
+
+  .generator-title h1 {
+    font-size: 36px;
+  }
+
+  .qr-code-scanner .scanner-input form .inputs p {
+    font-size: 24px;
   }
 }

@@ -10,6 +10,14 @@ input_file.addEventListener("change", (e) => {
   getResult(file);
 });
 
+closeScanner = () => {
+  processing_text.innerHTML = "Click Here To Upload";
+  text_area.innerHTML = "";
+  output_area.classList.remove("active");
+  qr_code_scanner.classList.remove("active");
+  input_file.value = "";
+};
+
 async function getResult(file) {
   processing_text.innerHTML = "Scanning QR Code...";
   const formData = new FormData();
@@ -36,13 +44,7 @@ async function getResult(file) {
   if (closeScanner) {
     close_button.removeEventListener("click", closeScanner);
   }
-  closeScanner = () => {
-    processing_text.innerHTML = "Click Here To Upload";
-    text_area.innerHTML = "";
-    output_area.classList.remove("active");
-    qr_code_scanner.classList.remove("active");
-    input_file.value = "";
-  };
+
   close_button.addEventListener("click", closeScanner);
 
   if (copyText) {
