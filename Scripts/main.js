@@ -21,14 +21,14 @@ let updateDownload = null,
   closeScanner = null,
   copyText = null;
 
-goto_scanner_button.addEventListener("click", () => {
-  qr_code_generator.classList.add("disabled");
-  qr_code_scanner.classList.remove("disabled");
-  closeGenerator();
-});
-
 goto_generator_button.addEventListener("click", () => {
   closeScanner();
   qr_code_generator.classList.remove("disabled");
   qr_code_scanner.classList.add("disabled");
+});
+
+goto_scanner_button.addEventListener("click", () => {
+  qr_code_generator.classList.add("disabled");
+  qr_code_scanner.classList.remove("disabled");
+  closeGenerator();
 });
