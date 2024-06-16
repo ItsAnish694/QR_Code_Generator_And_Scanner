@@ -1,3 +1,3 @@
 # QR_Code_Generator
 
-Generates QR Code
+Generates And Scans QR Code
