@@ -212,6 +212,7 @@ button:hover {
 
 .qr-code-scanner.active .scanner-input form .inputs img {
   display: block;
+  height: 250px;
   width: 250px;
 }
 
@@ -340,6 +341,7 @@ button:hover {
 
   .qr-code-scanner.active .scanner-input form .inputs img {
     width: calc(100% - 10px);
+    height: calc(100% - 10px);
   }
 
   .qr-code-scanner .scanner-input form .inputs p {
