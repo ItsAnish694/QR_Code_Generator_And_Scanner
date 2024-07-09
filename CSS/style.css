@@ -4,7 +4,36 @@
   box-sizing: border-box;
 }
 
-body {
+:root {
+  --buttonColor: #29ab87;
+  --borderGrey: grey;
+  --conBackground: aliceblue;
+  --lightBulb: grey;
+  --borderCon: black;
+  --scannerInput: whitesmoke;
+}
+
+body.active {
+  --conBackground: #36393e;
+  --borderCon: white;
+  --borderGrey: white;
+  --scannerInput: gray;
+  color: white;
+  background-color: #0a0a0a;
+}
+
+#lightbulb {
+  width: 69px;
+  height: 69px;
+  z-index: 1;
+  background-color: var(--lightBulb);
+  border-radius: 100%;
+  position: sticky;
+  top: 15px;
+  left: 15px;
+}
+
+.body {
   height: 100dvh;
   display: flex;
   justify-content: center;
@@ -16,15 +45,15 @@ p {
 }
 
 button {
-  background-color: #29ab87;
-  border: 1px solid gray;
+  background-color: var(--buttonColor);
+  border: 1px solid var(--borderGrey);
   box-shadow: 1px 1px 3px black;
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
   height: 55px;
   cursor: pointer;
-  color: #ffffff;
+  color: white;
 }
 
 button:hover {
@@ -42,9 +71,9 @@ button:hover {
 
 .qr-code-generator {
   padding: 30px;
-  background-color: #f0f8ff;
-  box-shadow: 1px 1px 12px black;
-  border: 1px solid black;
+  background-color: var(--conBackground);
+  box-shadow: 1px 1px 12px var(--borderCon);
+  border: 1px solid var(--borderCon);
   border-radius: 9px;
   position: absolute;
   transition: height 0.2s ease;
@@ -79,7 +108,7 @@ button:hover {
   border: 1px solid black;
   align-items: center;
   margin-top: 35px;
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
   transition: height 0.2s ease;
   opacity: 0;
@@ -106,7 +135,7 @@ button:hover {
   width: 416px;
   height: 55px;
   padding: 0px 15px;
-  border: 1px solid #808080;
+  border: 1px solid var(--borderGrey);
   text-align: center;
   border-radius: 5px;
   font-size: 18px;
@@ -114,13 +143,13 @@ button:hover {
 
 .download {
   opacity: 0.9;
-  background-color: gray;
+  background-color: grey;
   pointer-events: none;
 }
 
 .download.active {
   opacity: 1;
-  background-color: #29ab87;
+  background-color: var(--buttonColor);
   pointer-events: auto;
 }
 
@@ -151,11 +180,11 @@ button:hover {
 .qr-code-scanner {
   width: 100%;
   padding: 30px;
-  background-color: aliceblue;
+  background-color: var(--conBackground);
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid var(--borderCon);
   border-radius: 15px;
-  box-shadow: 1px 1px 12px black;
+  box-shadow: 1px 1px 12px var(--borderCon);
 }
 
 .qr-code-scanner.disabled {
@@ -168,10 +197,10 @@ button:hover {
 }
 
 .qr-code-scanner .scanner-input form .inputs {
-  background-color: whitesmoke;
+  background-color: var(--scannerInput);
   display: flex;
   align-items: center;
-  border: 1px solid gray;
+  border: 1px solid var(--borderGrey);
   border-radius: 9px;
   height: 420px;
   justify-content: center;
@@ -231,7 +260,7 @@ button:hover {
   border-radius: 9px;
   padding: 10px;
   font-size: 18px;
-  border: 1px solid gray;
+  border: 1px solid var(--borderGrey);
   font-weight: bold;
   background-color: white;
   resize: none;
@@ -257,8 +286,16 @@ button:hover {
 }
 
 @media screen and (orientation: portrait) {
+  .body {
+    background-color: var(--conBackground);
+  }
+
+  body.active {
+    background-color: var(--conBackground);
+  }
+
   body {
-    background-color: aliceblue;
+    background-color: var(--conBackground);
   }
 
   .qr-code-generator {
@@ -273,8 +310,16 @@ button:hover {
 }
 
 @media screen and (max-height: 700px) {
+  .body {
+    background-color: var(--conBackground);
+  }
+
   body {
-    background-color: aliceblue;
+    background-color: var(--conBackground);
+  }
+
+  body.active {
+    background-color: var(--conBackground);
   }
 
   .container {

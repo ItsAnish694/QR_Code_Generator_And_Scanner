@@ -13,7 +13,8 @@ const input_area = document.querySelector(".inputs"),
   get_data = document.querySelector(".generator-input-buttons input"),
   image_data = document.querySelector(".generator-img img"),
   generate = document.querySelector("#generate"),
-  download = document.querySelector(".download");
+  download = document.querySelector(".download"),
+  lightbulb = document.querySelector("#lightbulb");
 let updateDownload = null,
   imageLoad = null,
   count = false,
@@ -31,4 +32,8 @@ goto_scanner_button.addEventListener("click", () => {
   qr_code_generator.classList.add("disabled");
   qr_code_scanner.classList.remove("disabled");
   closeGenerator();
+});
+
+lightbulb.addEventListener("click", () => {
+  document.body.classList.toggle("active");
 });

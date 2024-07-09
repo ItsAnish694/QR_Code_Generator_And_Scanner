@@ -11,49 +11,52 @@
     <script src="Scripts/QR_Scanner.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class="qr-code-generator">
-        <div class="generator-title-img">
-          <div class="generator-title">
-            <h1>QR Code Generator</h1>
-          </div>
-          <div class="generator-img">
-            <img alt="qr-code" />
-          </div>
-        </div>
-        <div class="generator-input-buttons">
-          <input
-            type="text"
-            placeholder="Enter Your Text Here To Generate QR Code"
-          />
-          <div class="generator-buttons">
-            <button id="generate">Generate</button>
-            <button class="download">Download</button>
-          </div>
-          <button class="goto-scanner">QR Code Scanner</button>
-        </div>
-      </div>
-
-      <div class="qr-code-scanner disabled">
-        <div class="scanner-input">
-          <form action="#">
-            <div class="inputs">
-              <p>Click Here To Upload</p>
-              <img alt="qr-code" />
-              <input type="file" name="file" />
+    <img src="lightbulb.png" alt="switchModes" id="lightbulb" />
+    <div class="body">
+      <div class="container">
+        <div class="qr-code-generator">
+          <div class="generator-title-img">
+            <div class="generator-title">
+              <h1>QR Code Generator</h1>
             </div>
-          </form>
-        </div>
-        <div class="scanner-output-button">
-          <div class="output">
-            <textarea disabled></textarea>
+            <div class="generator-img">
+              <img alt="qr-code" />
+            </div>
           </div>
-          <div class="buttons">
-            <button id="close">Close</button>
-            <button id="copy">Copy</button>
+          <div class="generator-input-buttons">
+            <input
+              type="text"
+              placeholder="Enter Your Text Here To Generate QR Code"
+            />
+            <div class="generator-buttons">
+              <button id="generate">Generate</button>
+              <button class="download">Download</button>
+            </div>
+            <button class="goto-scanner">QR Code Scanner</button>
           </div>
         </div>
-        <button class="goto-generator">QR Code Generator</button>
+
+        <div class="qr-code-scanner disabled">
+          <div class="scanner-input">
+            <form action="#">
+              <div class="inputs">
+                <p>Click Here To Upload</p>
+                <img alt="qr-code" />
+                <input type="file" name="file" />
+              </div>
+            </form>
+          </div>
+          <div class="scanner-output-button">
+            <div class="output">
+              <textarea disabled></textarea>
+            </div>
+            <div class="buttons">
+              <button id="close">Close</button>
+              <button id="copy">Copy</button>
+            </div>
+          </div>
+          <button class="goto-generator">QR Code Generator</button>
+        </div>
       </div>
     </div>
   </body>
