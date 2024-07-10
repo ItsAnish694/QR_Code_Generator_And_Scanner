@@ -12,7 +12,9 @@
   --borderCon: black;
   --scannerInput: whitesmoke;
 }
-
+body {
+  position: relative;
+}
 body.active {
   --conBackground: #36393e;
   --borderCon: white;
@@ -29,8 +31,8 @@ body.active {
   background-color: var(--lightBulb);
   border-radius: 100%;
   position: sticky;
-  top: 15px;
-  left: 15px;
+  top: calc(100vh - 100px);
+  left: calc(100vw - 100px);
 }
 
 .body {
