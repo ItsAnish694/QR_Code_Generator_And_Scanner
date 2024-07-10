@@ -12,9 +12,7 @@
   --borderCon: black;
   --scannerInput: whitesmoke;
 }
-body {
-  position: relative;
-}
+
 body.active {
   --conBackground: #36393e;
   --borderCon: white;
