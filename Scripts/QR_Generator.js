@@ -30,6 +30,7 @@ function generate_qr_code() {
   }
 
   generate.innerHTML = "Generating...";
+  qr_code_generator.classList.add("pointerEvents");
 
   fetch(
     `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${the_input_value}`
@@ -58,7 +59,7 @@ function generate_qr_code() {
       generate.innerHTML = "Network Error";
       get_data.value = "";
     });
-
+  qr_code_generator.classList.remove("pointerEvents");
   if (imageLoad) {
     image_data.removeEventListener("load", imageLoad);
   }

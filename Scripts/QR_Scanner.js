@@ -1,6 +1,9 @@
 input_area.addEventListener("click", () => {
   processing_text.innerHTML = "Click Here To Upload";
   input_file.click();
+  closeScanner();
+  // output_area.classList.remove("active");
+  // qr_code_scanner.classList.remove("active");
 });
 
 input_file.addEventListener("change", (e) => {
@@ -15,11 +18,12 @@ closeScanner = () => {
   text_area.innerHTML = "";
   output_area.classList.remove("active");
   qr_code_scanner.classList.remove("active");
-  input_file.value = "";
+  input_file.value = null;
 };
 
 async function getResult(file) {
   processing_text.innerHTML = "Scanning QR Code...";
+  qr_code_scanner.classList.add("pointerEvents");
   const formData = new FormData();
   formData.append("file", file);
   let result = await fetch("https://api.qrserver.com/v1/read-qr-code/", {
@@ -28,6 +32,7 @@ async function getResult(file) {
   }).catch(() => {
     processing_text.innerHTML = "Can't Scan The QR Code";
   });
+  qr_code_scanner.classList.remove("pointerEvents");
   result = await result.json();
   result = result[0].symbol[0].data;
 
@@ -54,4 +59,5 @@ async function getResult(file) {
     navigator.clipboard.writeText(result);
   };
   copy_button.addEventListener("click", copyText);
+  // input_file.value = null;
 }

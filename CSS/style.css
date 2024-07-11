@@ -13,15 +13,6 @@
   --scannerInput: whitesmoke;
 }
 
-body.active {
-  --conBackground: #36393e;
-  --borderCon: white;
-  --borderGrey: white;
-  --scannerInput: gray;
-  color: white;
-  background-color: #0a0a0a;
-}
-
 #lightbulb {
   width: 69px;
   height: 69px;
@@ -38,6 +29,24 @@ body.active {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pointerEvents {
+  pointer-events: none;
+}
+
+body {
+  background-color: white;
+  transition: background-color 100ms ease-in-out;
+}
+
+body.active {
+  --conBackground: #36393e;
+  --borderCon: white;
+  --borderGrey: white;
+  --scannerInput: gray;
+  color: white;
+  background-color: #0a0a0a;
 }
 
 p {
@@ -209,12 +218,11 @@ button:hover {
 .scanner-output-button {
   height: 0px;
   pointer-events: none;
-  transition: height 0.5s ease;
+  transition: height 150ms ease;
 }
 
 .scanner-output-button div {
-  transition: opacity 0.3s 0.1s ease;
-  opacity: 0;
+  display: none;
 }
 
 .scanner-output-button.active {
@@ -223,7 +231,7 @@ button:hover {
 }
 
 .scanner-output-button.active div {
-  opacity: 1;
+  display: block;
 }
 
 .qr-code-scanner .scanner-input form .inputs p {
