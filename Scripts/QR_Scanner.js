@@ -2,8 +2,6 @@ input_area.addEventListener("click", () => {
   processing_text.innerHTML = "Click Here To Upload";
   input_file.click();
   closeScanner();
-  // output_area.classList.remove("active");
-  // qr_code_scanner.classList.remove("active");
 });
 
 input_file.addEventListener("change", (e) => {
